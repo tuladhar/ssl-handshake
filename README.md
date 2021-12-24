@@ -1,24 +1,14 @@
 # ssl-handshake
 A command-line debugging tool to check the latency of SSL handshake.
 
-## Usage
+## Installation
+Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download the binary for respective platforms from the releases page: https://github.com/tuladhar/ssl-handshake/releases
+
+Linux (amd64):
 ```
-ssl-handshake v1.3 ( https://tuladhar.github.com/ssl-handshake )
-
-A debugging tool to check the latency of SSL handshake.
-
-Usage:
-  ssl-handshake [options] hostname:port
-
-Options:
-  -t <timeout>   SSL handshake timeout in milliseconds (default: 5000)
-  -c <count>     Stop after <count> SSL handshakes (default: 0)
-  -i <interval>  Wait <interval> milliseconds between SSL handshakes (default: 1000)
-
-Examples:
-  ssl-handshake tuladhar.github.com:443
-  ssl-handshake -c 3 -i 500 tuladhar.github.com:443
-  ssl-handshake -t 500 imap.gmail.com:993
+wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.3/ssl-handshake-v1.3-linux-amd64.tar.gz
+tar zxf ssl-handshake-v1.3-linux-amd64.tar.gz
+./ssl-handshake
 ```
 
 ## Examples
@@ -68,7 +58,7 @@ rtt max: 109 ms, avg: 108 ms, min: 108 ms
 
 ## Development
 
-If you wish to contribute or compile from source code, you'll first need Go installed on your machine. Go version 1.17+ is required.
+If you wish to contribute or compile from source code, you'll first need Go installed on your machine. Go version 1.17+ is required. Currently, there's no dependencies on third-party modules. 
 
 ```
 git clone https://github.com/tuladhar/ssl-handshake
