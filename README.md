@@ -24,7 +24,6 @@ If you wish to contribute or compile from source code, you'll first need Go inst
 git clone https://github.com/tuladhar/ssl-handshake
 cd ssl-handshake 
 go build
-./ssl-handshake
 ```
 
 ## Contributors
