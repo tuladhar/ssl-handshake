@@ -3,7 +3,7 @@ A command-line debugging tool to check the latency of SSL handshake.
 
 ## Usage
 ```
-ssl-handshake v1.0 ( https://tuladhar.github.com/ssl-handshake )
+ssl-handshake v1.3 ( https://tuladhar.github.com/ssl-handshake )
 
 A debugging tool to check the latency of SSL handshake.
 
@@ -26,7 +26,7 @@ Examples:
 Continously send SSL handshake every 1 second (similar to ping). To cancel, press `Ctrl-C`, and it will display the handshake statistics summary and exit.
 ```
 $ ssl-handshake tuladhar.github.com:443
-Starting ssl-handshake v1.0 ( https://tuladhar.github.com/ssl-handshake ) at Fri, 24 Dec 2021 14:53:40 +0545
+Starting ssl-handshake v1.3 ( https://tuladhar.github.com/ssl-handshake ) at Fri, 24 Dec 2021 14:53:40 +0545
 SSL handshake with tuladhar.github.com:443: time=102 ms
 SSL handshake with tuladhar.github.com:443: time=101 ms
 SSL handshake with tuladhar.github.com:443: time=105 ms
@@ -41,7 +41,7 @@ rtt max: 125 ms, avg: 107 ms, min: 101 ms
 Send SSL handshake every 500ms and stop after 5 successful handshakes. 
 ```
 $ ssl-handshake -c 5 -i 500 tuladhar.github.com:443                           14:48:10
-Starting ssl-handshake v1.0 ( https://tuladhar.github.com/ssl-handshake ) at Fri, 24 Dec 2021 14:48:10 +0545
+Starting ssl-handshake v1.3 ( https://tuladhar.github.com/ssl-handshake ) at Fri, 24 Dec 2021 14:48:10 +0545
 SSL handshake with tuladhar.github.com:443: time=185 ms
 SSL handshake with tuladhar.github.com:443: time=94 ms
 SSL handshake with tuladhar.github.com:443: time=113 ms
@@ -56,7 +56,7 @@ rtt max: 185 ms, avg: 123 ms, min: 94 ms
 Send SSL handshake every 1 second with 110ms timeout and stop after 2 successful handshake.
 ```
 $ ssl-handshake -t 110 -c 2 tuladhar.github.com:443                                                                15:02:20
-Starting ssl-handshake v1.0 ( https://tuladhar.github.com/ssl-handshake ) at Fri, 24 Dec 2021 15:02:22 +0545
+Starting ssl-handshake v1.3 ( https://tuladhar.github.com/ssl-handshake ) at Fri, 24 Dec 2021 15:02:22 +0545
 SSL handshake with tuladhar.github.com:443: time=109 ms
 SSL handshake with tuladhar.github.com:443: time=0 ms error=timeout (110 ms) exceeded
 SSL handshake with tuladhar.github.com:443: time=108 ms
