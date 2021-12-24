@@ -15,19 +15,20 @@ type SSLHandshakeMetadata struct {
 }
 
 type SSLHandshakeConfig struct {
-	Endpoint        string
-	RefreshInterval int64
-	Timeout         int64
-	StopCount       int64
+	Endpoint  string
+	Interval  int64
+	Timeout   int64
+	StopCount int64
 }
 
 type SSLHandshakeState struct {
-	Total   int64
-	Success int64
-	Failed  int64
-	Max     int64
-	Avg     int64
-	Min     int64
+	Total    int64
+	Finished int64
+	Failed   int64
+	Max      int64
+	Avg      int64
+	Min      int64
+	Elapsed  int64
 }
 
 type SSLHandshake struct {
@@ -82,7 +83,7 @@ func (s *SSLHandshake) Start() {
 			}
 			fmt.Printf("SSL handshake with %s: time=%d ms error=%s\n", s.Config.Endpoint, 0, ssl_handshake_error)
 		} else {
-			s.State.Success++
+			s.State.Finished++
 			handshake_in_ms = handshake_duration.Milliseconds()
 			ssl_handshake_samples = append(ssl_handshake_samples, handshake_in_ms)
 
@@ -94,7 +95,8 @@ func (s *SSLHandshake) Start() {
 				s.State.Min = handshake_in_ms
 			}
 
-			s.State.Avg = Sum(ssl_handshake_samples) / s.State.Success
+			s.State.Elapsed = Sum(ssl_handshake_samples)
+			s.State.Avg = Sum(ssl_handshake_samples) / s.State.Finished
 
 			fmt.Printf("SSL handshake with %s: time=%d ms\n", s.Config.Endpoint, handshake_in_ms)
 		}
@@ -103,6 +105,6 @@ func (s *SSLHandshake) Start() {
 			s.ShowStatistics()
 		}
 
-		time.Sleep(time.Duration(s.Config.RefreshInterval) * time.Millisecond)
+		time.Sleep(time.Duration(s.Config.Interval) * time.Millisecond)
 	}
 }
