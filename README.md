@@ -13,7 +13,7 @@ tar zxf ssl-handshake-v1.3-linux-amd64.tar.gz
 
 ## Demo
 <p align="center">
-  <img width="600" src="https://github.com/tuladhar/ssl-handshake/blob/main/ssl-handshake.svg">
+  <img width="600" src="https://github.com/tuladhar/ssl-handshake/blob/main/demo/ssl-handshake.svg">
 </p>
 
 ## Development
