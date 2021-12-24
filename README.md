@@ -65,3 +65,17 @@ SSL handshake with tuladhar.github.com:443: time=108 ms
 3 handshakes sent, finished: 2, failed: 1, time: 217 ms
 rtt max: 109 ms, avg: 108 ms, min: 108 ms
 ```
+
+## Development
+
+If you wish to contribute or compile from source code, you'll first need Go installed on your machine. Go version 1.17+ is required.
+
+```
+git clone https://github.com/tuladhar/ssl-handshake
+cd ssl-handshake 
+go build
+./ssl-handshake
+```
+
+## Contributors
+- [Puru Tuladhar](https://tuladhar.github.io)
