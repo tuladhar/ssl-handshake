@@ -2,7 +2,7 @@
 A command-line debugging tool to check the latency of SSL handshake.
 
 ## Installation
-Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download the binary for respective platforms from the releases page: https://github.com/tuladhar/ssl-handshake/releases
+Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download the binary for respective platforms from the [releases page](https://github.com/tuladhar/ssl-handshake/releases).
 
 Linux (amd64):
 ```
