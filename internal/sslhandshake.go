@@ -101,7 +101,7 @@ func (s *SSLHandshake) Start() {
 			fmt.Printf("SSL handshake with %s: time=%d ms\n", s.Config.Endpoint, handshake_in_ms)
 		}
 
-		if s.State.Total == s.Config.StopCount {
+		if s.State.Finished == s.Config.StopCount {
 			s.ShowStatistics()
 		}
 
