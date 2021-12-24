@@ -1,5 +1,5 @@
 # ssl-handshake
-A command-line tool for testing SSL handshake latency, written in Go.
+A command-line tool for testing SSL handshake latency, written in [Go](https://go.dev/).
 
 ## Installation
 Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download the binary for your respective platform from the [releases page](https://github.com/tuladhar/ssl-handshake/releases).
