@@ -11,6 +11,11 @@ tar zxf ssl-handshake-v1.3-linux-amd64.tar.gz
 ./ssl-handshake
 ```
 
+## Demo
+<p align="center">
+  <img width="600" src="https://github.com/tuladhar/ssl-handshake/blob/main/ssl-handshake.svg">
+</p>
+
 ## Examples
 
 Continously send SSL handshake every 1 second (similar to ping). To cancel, press `Ctrl-C`, and it will display the handshake statistics summary and exit.
