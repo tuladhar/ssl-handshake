@@ -9,7 +9,7 @@ func main() {
 		Metadata: &sslhandshake.SSLHandshakeMetadata{
 			Name:        "ssl-handshake",
 			Description: "A debugging tool to check the latency of SSL handshake.",
-			Version:     "0.5",
+			Version:     "1.0",
 			URL:         "https://tuladhar.github.com/ssl-handshake",
 		},
 		Config: &sslhandshake.SSLHandshakeConfig{
