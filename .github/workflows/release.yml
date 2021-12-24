@@ -1,0 +1,27 @@
+name: Release binaries
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  releases-matrix:
+    name: Release Go Binary
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goversion: ["1.17"]
+        goos: [linux, windows, darwin]
+        goarch: [amd64, arm64]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: wangyoucao577/go-release-action@v1.16
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          goversion: ${{ matrix.goversion }}
+          goos: ${{ matrix.goos }}
+          goarch: ${{ matrix.goarch }}
+          project_path: "."
+          binary_name: "ssl-handshake"
+          ldflags: "-s -w"
+          extra_files: LICENSE README.md
