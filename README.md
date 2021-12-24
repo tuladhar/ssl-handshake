@@ -8,7 +8,7 @@ Linux (amd64):
 ```
 wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.4/ssl-handshake-v1.4-linux-amd64.tar.gz
 tar zxf ssl-handshake-v1.4-linux-amd64.tar.gz
-./ssl-handshake
+sudo install -o root -g root -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
 ```
 
 ## Demo
