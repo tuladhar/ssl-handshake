@@ -26,7 +26,7 @@ func (s *SSLHandshake) SetUsage() {
 	}
 }
 
-func (s *SSLHandshake) ParseFlags() {
+func (s *SSLHandshake) ParseFlag() {
 	flag.Int64Var(&s.Config.Timeout, "t", s.Config.Timeout, "")
 	flag.Int64Var(&s.Config.StopCount, "c", s.Config.StopCount, "")
 	flag.Int64Var(&s.Config.Interval, "i", s.Config.Interval, "")
@@ -41,5 +41,5 @@ func (s *SSLHandshake) ParseFlags() {
 
 func (s *SSLHandshake) InitCLI() {
 	s.SetUsage()
-	s.ParseFlags()
+	s.ParseFlag()
 }
