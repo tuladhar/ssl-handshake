@@ -1,15 +1,18 @@
 # ssl-handshake
 A command-line tool for testing SSL handshake latency, written in [Go](https://go.dev/).
 
+## What is SSL Handshake?
+> SSL handshake enables client and server to establish the secret keys with which they communicate securely.
+
 ## Installation
 Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download the binary for your respective platform from the [releases page](https://github.com/tuladhar/ssl-handshake/releases).
 
 Linux:
 ```
-wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.4/ssl-handshake-v1.4-linux-amd64.tar.gz
+wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5/ssl-handshake-v1.5-linux-amd64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.4-linux-amd64.tar.gz
+tar zxf ssl-handshake-v1.5-linux-amd64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
@@ -17,10 +20,10 @@ sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
 
 macOS (Intel):
 ```
-wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.4/ssl-handshake-v1.4-darwin-amd64.tar.gz
+wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5/ssl-handshake-v1.5-darwin-amd64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.4-darwin-amd64.tar.gz
+tar zxf ssl-handshake-v1.5-darwin-amd64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
@@ -28,10 +31,10 @@ sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
 
 macOS (Apple Silicon):
 ```
-wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.4/ssl-handshake-v1.4-darwin-arm64.tar.gz
+wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5/ssl-handshake-v1.5-darwin-arm64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.4-darwin-arm64.tar.gz
+tar zxf ssl-handshake-v1.5-darwin-arm64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake

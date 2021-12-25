@@ -1,6 +1,7 @@
 package internal
 
 import (
+	"context"
 	"crypto/tls"
 	"fmt"
 	"net"
@@ -37,31 +38,47 @@ type SSLHandshake struct {
 	State    *SSLHandshakeState
 }
 
-func (s *SSLHandshake) DoHandshake() (time.Duration, error) {
-	start := time.Now()
-	var end time.Duration
+func (s *SSLHandshake) EstablishTcp() (*net.Conn, int64, error) {
+	startTime := time.Now()
 
-	dialer := net.Dialer{
-		Timeout: time.Duration(s.Config.Timeout) * time.Millisecond,
+	conn, err := net.DialTimeout("tcp", s.Config.Endpoint, time.Duration(s.Config.Timeout)*time.Millisecond)
+	if err != nil {
+		return nil, 0, err
 	}
+
+	return &conn, time.Since(startTime).Milliseconds(), nil
+}
+
+func (s *SSLHandshake) DoHandshake() (int64, int64, error) {
 	tlsConfig := tls.Config{
 		InsecureSkipVerify: true,
 	}
 
-	conn, err := tls.DialWithDialer(&dialer, "tcp", s.Config.Endpoint, &tlsConfig)
-	if err != nil {
-		return end, err
+	tcpConn, tcpTime, tcpErr := s.EstablishTcp()
+	if tcpErr != nil {
+		return tcpTime, 0, tcpErr
 	}
-	end = time.Since(start)
-	conn.Close()
-	return end, nil
+
+	startTime := time.Now()
+	tlsConn := tls.Client(*tcpConn, &tlsConfig)
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(s.Config.Timeout)*time.Millisecond)
+	defer cancel()
+
+	tlsErr := tlsConn.HandshakeContext(ctx)
+	if tlsErr != nil {
+		return tcpTime, 0, tlsErr
+	}
+	tlsConn.Close()
+
+	return tcpTime, time.Since(startTime).Milliseconds(), nil
 }
 
 func (s *SSLHandshake) Start() {
 	var (
-		ssl_handshake_samples []int64
-		ssl_handshake_error   string
-		handshake_in_ms       int64
+		samples   []int64
+		errMsg    string
+		totalTime int64
 	)
 
 	fmt.Printf("Starting %s v%s ( %s ) at %s\n",
@@ -71,34 +88,30 @@ func (s *SSLHandshake) Start() {
 		time.Now().Format(time.RFC1123))
 
 	for {
-		handshake_duration, err := s.DoHandshake()
+		tcpTime, handshakeTime, err := s.DoHandshake()
+		totalTime = tcpTime + handshakeTime
+
 		s.State.Total++
 
 		if err != nil {
 			s.State.Failed++
 			if err, ok := err.(net.Error); ok && err.Timeout() {
-				ssl_handshake_error = fmt.Sprintf("timeout (%d ms) exceeded", s.Config.Timeout)
+				errMsg = "timeout exceeded"
 			} else {
-				ssl_handshake_error = err.Error()
+				errMsg = err.Error()
 			}
-			fmt.Printf("SSL handshake with %s: time=%d ms error=%s\n", s.Config.Endpoint, 0, ssl_handshake_error)
+			fmt.Printf("SSL handshake with %s: tcp=%dms handshake=%dms total=%dms error=%s\n", s.Config.Endpoint, tcpTime, handshakeTime, totalTime, errMsg)
 		} else {
 			s.State.Finished++
-			handshake_in_ms = handshake_duration.Milliseconds()
-			ssl_handshake_samples = append(ssl_handshake_samples, handshake_in_ms)
-
-			if handshake_in_ms > s.State.Max {
-				s.State.Max = handshake_in_ms
+			samples = append(samples, handshakeTime)
+			if handshakeTime > s.State.Max {
+				s.State.Max = handshakeTime
 			}
-
-			if s.State.Min == 0 || handshake_in_ms < s.State.Min {
-				s.State.Min = handshake_in_ms
+			if s.State.Min == 0 || handshakeTime < s.State.Min {
+				s.State.Min = handshakeTime
 			}
-
-			s.State.Elapsed = Sum(ssl_handshake_samples)
-			s.State.Avg = Sum(ssl_handshake_samples) / s.State.Finished
-
-			fmt.Printf("SSL handshake with %s: time=%d ms\n", s.Config.Endpoint, handshake_in_ms)
+			s.State.Avg = Sum(samples) / s.State.Finished
+			fmt.Printf("SSL handshake with %s: tcp=%dms handshake=%dms total=%dms\n", s.Config.Endpoint, tcpTime, handshakeTime, totalTime)
 		}
 
 		if s.Config.StopCount != 0 && s.State.Finished == s.Config.StopCount {
@@ -106,5 +119,6 @@ func (s *SSLHandshake) Start() {
 		}
 
 		time.Sleep(time.Duration(s.Config.Interval) * time.Millisecond)
+		s.State.Elapsed = s.State.Total * s.Config.Interval
 	}
 }
