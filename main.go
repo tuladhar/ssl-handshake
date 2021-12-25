@@ -20,7 +20,6 @@ func main() {
 		},
 		State: &sslhandshake.SSLHandshakeState{},
 	}
-
 	sslhandshake.InitCLI()
 	sslhandshake.NotifySignal()
 	sslhandshake.Start()
