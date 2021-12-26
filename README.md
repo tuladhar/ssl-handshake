@@ -63,7 +63,7 @@ unzip ssl-handshake-v1.5.2-windows-amd64.zip
 
 ## Development
 
-If you wish to contribute or compile from source code, you'll first need Go installed on your machine. Go version 1.17+ is required. Currently, there's no dependencies on third-party modules. 
+If you wish to contribute or compile from source code, you'll first need Go installed on your machine. Go version 1.17+ is required. Currently, there are no dependencies on third-party modules. 
 
 ```
 git clone https://github.com/tuladhar/ssl-handshake
