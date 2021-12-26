@@ -17,10 +17,10 @@ Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download th
 
 Linux:
 ```
-wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5/ssl-handshake-v1.5-linux-amd64.tar.gz
+wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5.1/ssl-handshake-v1.5.1-linux-amd64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.5-linux-amd64.tar.gz
+tar zxf ssl-handshake-v1.5.1-linux-amd64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
@@ -28,10 +28,10 @@ sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
 
 macOS (Intel):
 ```
-wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5/ssl-handshake-v1.5-darwin-amd64.tar.gz
+wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5.1/ssl-handshake-v1.5.1-darwin-amd64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.5-darwin-amd64.tar.gz
+tar zxf ssl-handshake-v1.5.1-darwin-amd64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
@@ -39,10 +39,10 @@ sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
 
 macOS (Apple Silicon):
 ```
-wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5/ssl-handshake-v1.5-darwin-arm64.tar.gz
+wget https://github.com/tuladhar/ssl-handshake/releases/download/v1.5.1/ssl-handshake-v1.5.1-darwin-arm64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.5-darwin-arm64.tar.gz
+tar zxf ssl-handshake-v1.5.1-darwin-arm64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
