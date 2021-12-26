@@ -17,7 +17,7 @@ jobs:
       - uses: wangyoucao577/go-release-action@v1.16
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          goversion: 1.17
+          goversion: "https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz"
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           project_path: "."
@@ -37,7 +37,7 @@ jobs:
       - uses: wangyoucao577/go-release-action@v1.16
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          goversion: 1.17
+          goversion: "https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz"
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           project_path: "."
