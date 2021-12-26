@@ -6,7 +6,7 @@ A SSL/TLS handshake is the process that kicks off a communication session betwee
 
 TLS handshakes occur after a TCP connection has been opened via a TCP handshake. 
 
-![image](https://user-images.githubusercontent.com/5674762/147403485-68881b78-7aa5-4459-8c73-4f9cebf98178.png)
+![image](https://user-images.githubusercontent.com/5674762/147405109-319358ff-8506-4383-8778-6961e99c4e99.png)
 
 TLS handshake packets captured with [Wireshark](https://www.wireshark.org/).
 
