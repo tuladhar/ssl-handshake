@@ -2,7 +2,7 @@
 A command-line tool for testing SSL/TLS handshake latency, written in [Go](https://go.dev/).
 
 ## What is a SSL/TLS Handshake?
-A SSL/TLS handshake is the process that kicks off a communication session between client and server that uses [TLS encryption](https://en.wikipedia.org/wiki/Transport_Layer_Security). During a TLS handshake, the two communicating sides exchange messages to acknowledge each other, verify each other, establish the encryption algorithms they will use, and agree on session keys. TLS handshakes are a foundational part of how HTTPS works and it is defined in [RFC 8446 (for TLS 1.3)](https://tools.ietf.org/html/rfc8446) or in [RFC 5246 (for TLS 1.2)](https://datatracker.ietf.org/doc/html/rfc5246).
+SSL/TLS handshake is the process that kicks off a communication session between client and server that uses [TLS encryption](https://en.wikipedia.org/wiki/Transport_Layer_Security). During a TLS handshake, the two communicating sides exchange messages to acknowledge each other, verify each other, establish the encryption algorithms they will use, and agree on session keys. TLS handshakes are a foundational part of how HTTPS works and it is defined in [RFC 8446 (for TLS 1.3)](https://tools.ietf.org/html/rfc8446) or in [RFC 5246 (for TLS 1.2)](https://datatracker.ietf.org/doc/html/rfc5246).
 
 TLS handshakes occur after a TCP connection has been opened via a TCP handshake. 
 
