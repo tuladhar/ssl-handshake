@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        goversion: ["1.17"]
         goos: [linux, windows, darwin]
         goarch: [amd64]
     steps:
@@ -18,7 +17,7 @@ jobs:
       - uses: wangyoucao577/go-release-action@v1.16
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          goversion: ${{ matrix.goversion }}
+          goversion: "1.17.5"
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           project_path: "."
