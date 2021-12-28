@@ -12,7 +12,21 @@ TLS handshake packets captured with [Wireshark](https://www.wireshark.org/).
 
 ![image](https://user-images.githubusercontent.com/5674762/147404043-7e6d983a-e9c5-4477-a8e2-3e054d4f861d.png)
 
-## Installation
+## Docker Image
+
+Docker image is publicly available at DockerHub:
+* https://hub.docker.com/r/ptuladhar/ssl-handshake
+
+Run `ssl-handshake` as Docker container:
+```
+docker run --rm ptuladhar/ssl-handshake -c 5 tuladhar.github.io:443
+```
+You can also alias `ssl-handshake`, for ease of use:
+```
+alias ssl-handshake="docker run --rm ptuladhar/ssl-handshake"
+ssl-handshake tuladhar.github.com:443
+```
+## Install binary
 Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download the binary for your respective platform from the [releases page](https://github.com/tuladhar/ssl-handshake/releases).
 
 Linux:
