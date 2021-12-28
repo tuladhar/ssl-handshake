@@ -1,6 +1,11 @@
 # ssl-handshake
 A command-line tool for testing SSL/TLS handshake latency, written in [Go](https://go.dev/).
 
+## Demo
+<p align="center">
+  <img width="600" src="https://github.com/tuladhar/ssl-handshake/blob/main/demo/ssl-handshake.svg">
+</p>
+
 ## What is an SSL/TLS Handshake?
 An SSL/TLS handshake is the process that kicks off a communication session between client and server that uses [TLS encryption](https://en.wikipedia.org/wiki/Transport_Layer_Security). During a TLS handshake, the two communicating sides exchange messages to acknowledge each other, verify each other, establish the encryption algorithms they will use, and agree on session keys. TLS handshakes are a foundational part of how HTTPS works and it is defined in [RFC 8446 (for TLS 1.3)](https://tools.ietf.org/html/rfc8446) or in [RFC 5246 (for TLS 1.2)](https://datatracker.ietf.org/doc/html/rfc5246).
 
@@ -69,11 +74,6 @@ curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.5.2/ss
 ```
 unzip ssl-handshake-v1.5.2-windows-amd64.zip
 ```
-
-## Demo
-<p align="center">
-  <img width="600" src="https://github.com/tuladhar/ssl-handshake/blob/main/demo/ssl-handshake.svg">
-</p>
 
 ## Development
 
