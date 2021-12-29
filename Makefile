@@ -1,8 +1,13 @@
-TAG := ssl-handshake:1.6.0
+ACCOUNT := ptuladhar
+REPO := ssl-handshake
+VERSION := 1.6.0
 
 build-image:
-	docker build -t $(TAG) .
+	docker build -t $(REPO):$(VERSION) .
 
 push-image: build-image
-	docker tag $(TAG) ptuladhar/$(TAG)
-	docker push ptuladhar/$(TAG)
+	docker tag $(REPO):$(VERSION) $(ACCOUNT)/$(REPO):$(VERSION)
+	docker push $(ACCOUNT)/$(REPO):$(VERSION)
+	docker tag $(REPO):$(VERSION) $(ACCOUNT)/$(REPO):latest
+	docker push $(ACCOUNT)/$(REPO):latest
+
