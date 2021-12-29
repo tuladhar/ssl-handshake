@@ -10,7 +10,7 @@ A command-line tool for testing SSL/TLS handshake latency, written in [Go](https
 
 ## 
 <p align="center">
-  <img width="600" src="https://github.com/tuladhar/ssl-handshake/blob/main/demo/ssl-handshake-1.6.2.svg">
+  <img width="600" src="https://github.com/tuladhar/ssl-handshake/blob/main/demo/ssl-handshake.svg">
 </p>
 
 
