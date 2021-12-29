@@ -4,7 +4,8 @@ A command-line tool for testing SSL/TLS handshake latency, written in [Go](https
 ## Features
 * TCP handshake latency
 * SSL/TLS handshake latency
-* Display statistics
+* TLS version used during the handshake
+* Display handshake statistics
 * Configurable endpoint port, handshake interval, timeout and count
 
 ## 
