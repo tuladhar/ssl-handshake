@@ -1,6 +1,12 @@
 # ssl-handshake
 A command-line tool for testing SSL/TLS handshake latency, written in [Go](https://go.dev/).
 
+## Features
+* TCP handshake latency
+* SSL/TLS handshake latency
+* Display statistics
+* Configurable endpoint port, handshake interval, timeout and count
+
 ## 
 <p align="center">
   <img width="600" src="https://github.com/tuladhar/ssl-handshake/blob/main/demo/ssl-handshake.svg">
