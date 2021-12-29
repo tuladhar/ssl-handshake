@@ -49,14 +49,14 @@ func (s *SSLHandshake) EstablishTcp() (*net.Conn, int64, error) {
 	return &conn, time.Since(startTime).Milliseconds(), nil
 }
 
-func (s *SSLHandshake) DoHandshake() (int64, int64, error) {
+func (s *SSLHandshake) DoHandshake() (int64, uint16, int64, error) {
 	tlsConfig := tls.Config{
 		InsecureSkipVerify: true,
 	}
 
 	tcpConn, tcpTime, tcpErr := s.EstablishTcp()
 	if tcpErr != nil {
-		return tcpTime, 0, tcpErr
+		return tcpTime, 0, 0, tcpErr
 	}
 
 	startTime := time.Now()
@@ -67,11 +67,13 @@ func (s *SSLHandshake) DoHandshake() (int64, int64, error) {
 
 	tlsErr := tlsConn.HandshakeContext(ctx)
 	if tlsErr != nil {
-		return tcpTime, 0, tlsErr
+		return tcpTime, 0, 0, tlsErr
 	}
+	tlsVersion := tlsConn.ConnectionState().Version
+
 	tlsConn.Close()
 
-	return tcpTime, time.Since(startTime).Milliseconds(), nil
+	return tcpTime, tlsVersion, time.Since(startTime).Milliseconds(), nil
 }
 
 func (s *SSLHandshake) Start() {
@@ -88,10 +90,22 @@ func (s *SSLHandshake) Start() {
 		time.Now().Format(time.RFC1123))
 
 	for {
-		tcpTime, handshakeTime, err := s.DoHandshake()
+		tcpTime, tlsVersion, handshakeTime, err := s.DoHandshake()
 		totalTime = tcpTime + handshakeTime
 
 		s.State.Total++
+
+		tlsVersionName := "n/a"
+		switch tlsVersion {
+		case tls.VersionTLS10:
+			tlsVersionName = "tls1.0"
+		case tls.VersionTLS11:
+			tlsVersionName = "tls1.1"
+		case tls.VersionTLS12:
+			tlsVersionName = "tls1.2"
+		case tls.VersionTLS13:
+			tlsVersionName = "tls1.3"
+		}
 
 		if err != nil {
 			s.State.Failed++
@@ -100,7 +114,7 @@ func (s *SSLHandshake) Start() {
 			} else {
 				errMsg = err.Error()
 			}
-			fmt.Printf("SSL handshake with %s: tcp=%dms handshake=%dms total=%dms error=%s\n", s.Config.Endpoint, tcpTime, handshakeTime, totalTime, errMsg)
+			fmt.Printf("SSL handshake with %s: tcp=%dms handshake=%dms version=%s total=%dms error=%s\n", s.Config.Endpoint, tcpTime, handshakeTime, tlsVersionName, totalTime, errMsg)
 		} else {
 			s.State.Finished++
 			samples = append(samples, handshakeTime)
@@ -111,7 +125,7 @@ func (s *SSLHandshake) Start() {
 				s.State.Min = handshakeTime
 			}
 			s.State.Avg = Sum(samples) / s.State.Finished
-			fmt.Printf("SSL handshake with %s: tcp=%dms handshake=%dms total=%dms\n", s.Config.Endpoint, tcpTime, handshakeTime, totalTime)
+			fmt.Printf("SSL handshake with %s: tcp=%dms handshake=%dms version=%s total=%dms\n", s.Config.Endpoint, tcpTime, handshakeTime, tlsVersionName, totalTime)
 		}
 
 		if s.Config.StopCount != 0 && s.State.Finished == s.Config.StopCount {
