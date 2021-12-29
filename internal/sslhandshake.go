@@ -98,13 +98,13 @@ func (s *SSLHandshake) Start() {
 		tlsVersionName := "n/a"
 		switch tlsVersion {
 		case tls.VersionTLS10:
-			tlsVersionName = "tls1.0"
+			tlsVersionName = "1.0"
 		case tls.VersionTLS11:
-			tlsVersionName = "tls1.1"
+			tlsVersionName = "1.1"
 		case tls.VersionTLS12:
-			tlsVersionName = "tls1.2"
+			tlsVersionName = "1.2"
 		case tls.VersionTLS13:
-			tlsVersionName = "tls1.3"
+			tlsVersionName = "1.3"
 		}
 
 		if err != nil {
