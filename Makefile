@@ -1,6 +1,6 @@
 ACCOUNT := ptuladhar
 REPO := ssl-handshake
-VERSION := 1.6.0
+VERSION := 1.6.1
 
 build-image:
 	docker build -t $(REPO):$(VERSION) .

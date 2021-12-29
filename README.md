@@ -43,10 +43,10 @@ Binary is available for Linux, Windows and Mac OS (amd64 and arm64). Download th
 
 Linux:
 ```
-curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.6.0/ssl-handshake-v1.6.0-linux-amd64.tar.gz
+curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.6.1/ssl-handshake-v1.6.1-linux-amd64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.6.0-linux-amd64.tar.gz
+tar zxf ssl-handshake-v1.6.1-linux-amd64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
@@ -54,10 +54,10 @@ sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
 
 macOS (Intel):
 ```
-curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.6.0/ssl-handshake-v1.6.0-darwin-amd64.tar.gz
+curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.6.1/ssl-handshake-v1.6.1-darwin-amd64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.6.0-darwin-amd64.tar.gz
+tar zxf ssl-handshake-v1.6.1-darwin-amd64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
@@ -65,10 +65,10 @@ sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
 
 macOS (Apple Silicon):
 ```
-curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.6.0/ssl-handshake-v1.6.0-darwin-arm64.tar.gz
+curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.6.1/ssl-handshake-v1.6.1-darwin-arm64.tar.gz
 ```
 ```
-tar zxf ssl-handshake-v1.6.0-darwin-arm64.tar.gz
+tar zxf ssl-handshake-v1.6.1-darwin-arm64.tar.gz
 ```
 ```
 sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
@@ -76,10 +76,10 @@ sudo install -m 0755 ssl-handshake /usr/local/bin/ssl-handshake
 
 Windows:
 ```
-curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.6.0/ssl-handshake-v1.6.0-windows-amd64.zip
+curl -sSLO https://github.com/tuladhar/ssl-handshake/releases/download/v1.6.1/ssl-handshake-v1.6.1-windows-amd64.zip
 ```
 ```
-unzip ssl-handshake-v1.6.0-windows-amd64.zip
+unzip ssl-handshake-v1.6.1-windows-amd64.zip
 ```
 
 ## Development
