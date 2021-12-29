@@ -1,4 +1,4 @@
-TAG := ssl-handshake:1.5.2
+TAG := ssl-handshake:1.6.0
 
 build-image:
 	docker build -t $(TAG) .
