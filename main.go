@@ -10,7 +10,7 @@ func main() {
 			Name:        "ssl-handshake",
 			Description: "A command-line tool for testing SSL/TLS handshake latency.",
 			Version:     "1.6.1",
-			URL:         "https://tuladhar.github.com/ssl-handshake",
+			URL:         "https://github.com/tuladhar/ssl-handshake",
 		},
 		Config: &sslhandshake.SSLHandshakeConfig{
 			Endpoint:  "",
