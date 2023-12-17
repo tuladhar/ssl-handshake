@@ -16,10 +16,11 @@ type SSLHandshakeMetadata struct {
 }
 
 type SSLHandshakeConfig struct {
-	Endpoint  string
-	Interval  int64
-	Timeout   int64
-	StopCount int64
+	Endpoint   string
+	Interval   int64
+	ServerName string
+	StopCount  int64
+	Timeout    int64
 }
 
 type SSLHandshakeState struct {
@@ -52,6 +53,9 @@ func (s *SSLHandshake) EstablishTcp() (*net.Conn, int64, error) {
 func (s *SSLHandshake) DoHandshake() (int64, uint16, int64, error) {
 	tlsConfig := tls.Config{
 		InsecureSkipVerify: true,
+	}
+	if s.Config.ServerName != "" {
+		tlsConfig.ServerName = s.Config.ServerName
 	}
 
 	tcpConn, tcpTime, tcpErr := s.EstablishTcp()

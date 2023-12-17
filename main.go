@@ -13,10 +13,11 @@ func main() {
 			URL:         "https://github.com/tuladhar/ssl-handshake",
 		},
 		Config: &sslhandshake.SSLHandshakeConfig{
-			Endpoint:  "",
-			Interval:  1000,
-			Timeout:   5000,
-			StopCount: 0,
+			Endpoint:   "",
+			Interval:   1000,
+			ServerName: "",
+			StopCount:  0,
+			Timeout:    5000,
 		},
 		State: &sslhandshake.SSLHandshakeState{},
 	}
