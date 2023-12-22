@@ -94,5 +94,14 @@ cd ssl-handshake
 go build
 ```
 
+## Release
+
+1. [Draft new release](https://github.com/tuladhar/ssl-handshake/releases/new)
+2. Choose a release tag, e.g: `v1.6.2`
+3. Set release title and changelog
+4. Click `Publish release`
+
+Now, [GitHub action release workflow](https://github.com/tuladhar/ssl-handshake/actions/workflows/release.yml) will triggered to build binary for all major platforms.
+
 ## Contributors
-- [Puru Tuladhar](https://tuladhar.github.io)
+- [See Contributors](https://github.com/tuladhar/ssl-handshake/graphs/contributors)
