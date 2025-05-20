@@ -44,7 +44,7 @@ func (s *SSLHandshake) EstablishTcp() (*net.Conn, int64, error) {
 
 	conn, err := net.DialTimeout("tcp", s.Config.Endpoint, time.Duration(s.Config.Timeout)*time.Millisecond)
 	if err != nil {
-		return nil, 0, err
+		return nil, 0, fmt.Errorf("tcp: %w", err)
 	}
 
 	return &conn, time.Since(startTime).Milliseconds(), nil
@@ -71,7 +71,7 @@ func (s *SSLHandshake) DoHandshake() (int64, uint16, int64, error) {
 
 	tlsErr := tlsConn.HandshakeContext(ctx)
 	if tlsErr != nil {
-		return tcpTime, 0, 0, tlsErr
+		return tcpTime, 0, 0, fmt.Errorf("hanshake: %w", tlsErr)
 	}
 	tlsVersion := tlsConn.ConnectionState().Version
 
